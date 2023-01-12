@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:40:14 by rania             #+#    #+#             */
-/*   Updated: 2023/01/09 18:10:33 by rania            ###   ########.fr       */
+/*   Updated: 2023/01/12 17:52:47 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <stdio.h>
+#include <pthread.h>
 
 # define RED "\033[0;31m"
 # define WHITE "\033[0;37m"
