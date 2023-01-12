@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:43:24 by rania             #+#    #+#             */
-/*   Updated: 2023/01/09 18:15:52 by rania            ###   ########.fr       */
+/*   Updated: 2023/01/12 17:49:46 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@ int	ft_check_arg(char **av)
 	int	j;
 
 	i = 1;
-	if (ft_atoi(av[1]) < 1)
-	{
-		printf(RED"Bad number of philo.\n"WHITE);
-		return (0);
-	}
 	while (av[i])
 	{
 		j = 0;
@@ -36,6 +31,11 @@ int	ft_check_arg(char **av)
 				j++;
 		}
 		i++;
+	}
+	if (ft_atoi(av[1]) < 1)
+	{
+		printf(RED"Bad number of philo.\n"WHITE);
+		return (0);
 	}
 	return (1);
 }
