@@ -6,7 +6,7 @@
 #    By: rania <rania@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 17:34:49 by rania             #+#    #+#              #
-#    Updated: 2023/01/12 18:08:19 by rania            ###   ########.fr        #
+#    Updated: 2023/01/20 14:08:49 by rania            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,9 @@ NAME	= philo
 
 CC		= gcc
 RM		= rm -f
-CFLAGS	= $(INC)
+CFLAGS	= $(INC) -fsanitize=address -g3
+
 # -Wall -Wextra -Werror
-# -fsanitize=address -g3
 all:		$(NAME)
 
 $(NAME):	$(OBJS)

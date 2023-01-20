@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:40:14 by rania             #+#    #+#             */
-/*   Updated: 2023/01/16 20:47:09 by rania            ###   ########.fr       */
+/*   Updated: 2023/01/20 13:51:23 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,15 @@ typedef struct s_stack
 	int				time_eat;
 	int				time_sleep;
 	int				nb_meal;
+	pthread_mutex_t	*forks;
 }	t_stack;
 
 typedef struct s_philo
 {
 	int			id;
+	int			forks[2];
 	pthread_t	thread;
-	t_stack		*stack;
+	t_stack		*table;
 }	t_philo;
 
 int		ft_check_arg(char **av);
