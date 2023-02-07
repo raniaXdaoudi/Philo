@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:40:14 by rania             #+#    #+#             */
-/*   Updated: 2023/01/20 13:51:23 by rania            ###   ########.fr       */
+/*   Updated: 2023/02/07 15:18:25 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,20 @@
 # define RED "\033[0;31m"
 # define WHITE "\033[0;37m"
 
+typedef struct s_philo t_philo;
+
 typedef struct s_stack
 {
 	int				nb_philo;
-	int				time_die;
-	int				time_eat;
-	int				time_sleep;
+	time_t			time_die;
+	time_t			time_eat;
+	time_t			time_sleep;
 	int				nb_meal;
+	time_t 			start_time;
+	int				died;
+	t_philo			**philo;
 	pthread_mutex_t	*forks;
+	pthread_mutex_t	print;
 }	t_stack;
 
 typedef struct s_philo
@@ -38,10 +44,14 @@ typedef struct s_philo
 	int			forks[2];
 	pthread_t	thread;
 	t_stack		*table;
+	time_t		last_eat;
+	int			died;
 }	t_philo;
 
 int		ft_check_arg(char **av);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *nptr);
+size_t	ft_strlen(const char *str);
+void	ft_putnbr(long long int nbr);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:43:37 by rania             #+#    #+#             */
-/*   Updated: 2023/01/09 18:05:52 by rania            ###   ########.fr       */
+/*   Updated: 2023/02/07 15:16:41 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,3 +45,24 @@ int	ft_atoi(const char *nptr)
 	return (res * neg);
 }
 
+size_t	ft_strlen(const char *str)
+{
+	size_t	i;
+
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}
+
+void	ft_putnbr(long long int nbr)
+{
+	char		c;
+
+	if (nbr >= 10)
+	{
+		ft_putnbr(nbr / 10);
+	}
+	c = (nbr % 10) + '0';
+	write(1, &c, 1);
+}
