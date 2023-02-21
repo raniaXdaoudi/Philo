@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:40:14 by rania             #+#    #+#             */
-/*   Updated: 2023/02/13 11:10:44 by rania            ###   ########.fr       */
+/*   Updated: 2023/02/21 14:32:38 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,17 @@ typedef struct s_philo
 	time_t		last_eat;
 }	t_philo;
 
+void	wait_time(t_stack *table, time_t time);
+void	ft_putnbr(long long int nbr);
+void	*routine(void *data);
+void	*routine_death(void *data);
+void	ft_print(t_philo *philo, char *str);
+int		get_death(t_philo *philo);
 int		ft_check_arg(char **av);
 int		ft_isdigit(int c);
 int		ft_atoi(const char *nptr);
 size_t	ft_strlen(const char *str);
-void	ft_putnbr(long long int nbr);
+time_t	get_current_time(void);
+t_stack	*ft_fill_table(char **av, int ac);
 
 #endif

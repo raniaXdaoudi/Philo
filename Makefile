@@ -6,7 +6,7 @@
 #    By: rania <rania@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 17:34:49 by rania             #+#    #+#              #
-#    Updated: 2023/01/20 14:08:49 by rania            ###   ########.fr        #
+#    Updated: 2023/02/21 14:19:41 by rania            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,9 @@ SRCS_DIR	= srcs
 SRCS_NAME	= main.c \
 				check_arg.c \
 				utils.c \
+				init.c \
+				time.c \
+				routine.c \
 
 OBJS_DIR	= objs
 OBJS_NAME	= ${SRCS_NAME:.c=.o}
@@ -25,9 +28,9 @@ NAME	= philo
 
 CC		= gcc
 RM		= rm -f
-CFLAGS	= $(INC) -fsanitize=address -g3
+CFLAGS	= $(INC) -Wall -Wextra -Werror
 
-# -Wall -Wextra -Werror
+# -fsanitize=address -g3
 all:		$(NAME)
 
 $(NAME):	$(OBJS)

@@ -6,7 +6,7 @@
 /*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:43:37 by rania             #+#    #+#             */
-/*   Updated: 2023/02/07 15:16:41 by rania            ###   ########.fr       */
+/*   Updated: 2023/02/21 14:18:06 by rania            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,15 @@ void	ft_putnbr(long long int nbr)
 	}
 	c = (nbr % 10) + '0';
 	write(1, &c, 1);
+}
+
+void	ft_print(t_philo *philo, char *str)
+{
+	pthread_mutex_lock(&philo->table->print);
+	ft_putnbr(get_current_time() - philo->table->start_time);
+	write(1, " ", 1);
+	ft_putnbr(philo->id + 1);
+	write(1, " ", 1);
+	write(1, str, ft_strlen(str));
+	pthread_mutex_unlock(&philo->table->print);
 }
