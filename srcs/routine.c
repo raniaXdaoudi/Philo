@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   routine.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
+/*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 14:15:24 by rania             #+#    #+#             */
-/*   Updated: 2023/02/21 14:34:23 by rania            ###   ########.fr       */
+/*   Updated: 2023/02/21 18:22:49 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ void	*routine_death(void *data)
 		check_eat_count = 1;
 		if (philo[0]->table->nb_meal == -1)
 			check_eat_count = 0;
-		while(i < philo[0]->table->nb_philo)
+		while (i < philo[0]->table->nb_philo)
 		{
 			if (philo[i]->eat_count < philo[0]->table->nb_meal)
 				check_eat_count = 0;

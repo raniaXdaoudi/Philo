@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
+/*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:43:31 by rania             #+#    #+#             */
-/*   Updated: 2023/02/21 14:42:51 by rania            ###   ########.fr       */
+/*   Updated: 2023/02/21 18:18:34 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,8 @@ void	ft_open_thread(t_stack *table)
 	{
 		while (i < table->nb_philo)
 		{
-			pthread_create(&table->philo[i]->thread, NULL, routine, table->philo[i]);
+			pthread_create(&table->philo[i]->thread,
+				NULL, routine, table->philo[i]);
 			i++;
 		}
 	}
@@ -64,13 +65,14 @@ static void	ft_start(t_stack *table)
 	pthread_create(&death, NULL, routine_death, table->philo);
 	pthread_join(death, NULL);
 	i = 0;
-	while(i < table->nb_philo)
+	while (i < table->nb_philo)
 	{
 		pthread_join(table->philo[i]->thread, NULL);
 		pthread_mutex_destroy(&table->forks[i]);
 		i++;
 	}
 }
+
 int	main(int ac, char **av)
 {
 	t_stack		*table;

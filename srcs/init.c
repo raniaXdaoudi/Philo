@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
+/*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:34:54 by rania             #+#    #+#             */
-/*   Updated: 2023/02/21 14:01:05 by rania            ###   ########.fr       */
+/*   Updated: 2023/02/21 18:13:48 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static pthread_mutex_t	*ft_init_forks(t_stack *table)
 {
-	int	i;
+	int				i;
 	pthread_mutex_t	*forks;
 
 	i = -1;
@@ -58,7 +58,8 @@ static t_philo	**ft_init_philo(t_stack *table)
 
 t_stack	*ft_fill_table(char **av, int ac)
 {
-	t_stack *table;
+	t_stack	*table;
+
 	table = malloc(sizeof(t_stack));
 	if (!table)
 		return (NULL);
@@ -73,7 +74,7 @@ t_stack	*ft_fill_table(char **av, int ac)
 	table->start_time = 0;
 	table->died = 0;
 	table->nb_meal = -1;
-	if(ac == 6)
+	if (ac == 6)
 		table->nb_meal = ft_atoi(av[5]);
 	return (table);
 }

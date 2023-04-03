@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: rania <rania@student.42.fr>                +#+  +:+       +#+        */
+/*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:40:14 by rania             #+#    #+#             */
-/*   Updated: 2023/02/21 14:32:38 by rania            ###   ########.fr       */
+/*   Updated: 2023/02/21 18:11:56 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 # define RED "\033[0;31m"
 # define WHITE "\033[0;37m"
 
-typedef struct s_philo t_philo;
+typedef struct s_philo	t_philo;
 
 typedef struct s_stack
 {
@@ -32,7 +32,7 @@ typedef struct s_stack
 	time_t			time_die;
 	time_t			time_eat;
 	time_t			time_sleep;
-	time_t 			start_time;
+	time_t			start_time;
 	t_philo			**philo;
 	pthread_mutex_t	*forks;
 	pthread_mutex_t	print;
@@ -42,7 +42,7 @@ typedef struct s_philo
 {
 	int			id;
 	int			forks[2];
-	int 		eat_count;
+	int			eat_count;
 	int			died;
 	pthread_t	thread;
 	t_stack		*table;
