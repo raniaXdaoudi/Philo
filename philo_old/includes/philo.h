@@ -6,7 +6,7 @@
 /*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:40:14 by rania             #+#    #+#             */
-/*   Updated: 2023/02/21 18:11:56 by radaoudi         ###   ########.fr       */
+/*   Updated: 2023/04/11 16:53:39 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_stack
 	int				nb_philo;
 	int				nb_meal;
 	int				died;
+	int				check_eat_count;
 	time_t			time_die;
 	time_t			time_eat;
 	time_t			time_sleep;
@@ -40,13 +41,14 @@ typedef struct s_stack
 
 typedef struct s_philo
 {
-	int			id;
-	int			forks[2];
-	int			eat_count;
-	int			died;
-	pthread_t	thread;
-	t_stack		*table;
-	time_t		last_eat;
+	int				id;
+	int				forks[2];
+	int				eat_count;
+	int				died;
+	pthread_mutex_t	mutex_philo;
+	pthread_t		thread;
+	t_stack			*table;
+	time_t			last_eat;
 }	t_philo;
 
 void	wait_time(t_stack *table, time_t time);

@@ -6,7 +6,7 @@
 /*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/18 15:34:54 by rania             #+#    #+#             */
-/*   Updated: 2023/02/21 18:13:48 by radaoudi         ###   ########.fr       */
+/*   Updated: 2023/04/11 16:55:18 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@ static t_philo	**ft_init_philo(t_stack *table)
 		philo[i]->forks[0] = i;
 		philo[i]->last_eat = 0;
 		philo[i]->eat_count = 0;
+		if (pthread_mutex_init(&philo[i]->mutex_philo, NULL) != 0)
+			return (NULL);
 		if (philo[i]->id == table->nb_philo - 1)
 				philo[i]->forks[1] = 0;
 		else
@@ -74,6 +76,7 @@ t_stack	*ft_fill_table(char **av, int ac)
 	table->start_time = 0;
 	table->died = 0;
 	table->nb_meal = -1;
+	table->check_eat_count = 1;
 	if (ac == 6)
 		table->nb_meal = ft_atoi(av[5]);
 	return (table);

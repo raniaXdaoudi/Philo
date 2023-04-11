@@ -6,7 +6,7 @@
 /*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:43:31 by rania             #+#    #+#             */
-/*   Updated: 2023/02/21 18:18:34 by radaoudi         ###   ########.fr       */
+/*   Updated: 2023/04/11 15:46:50 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,10 @@ static void	ft_start(t_stack *table)
 	while (i < table->nb_philo)
 	{
 		pthread_join(table->philo[i]->thread, NULL);
-		pthread_mutex_destroy(&table->forks[i]);
 		i++;
 	}
+	pthread_mutex_destroy(&table->print);
+	pthread_mutex_destroy(table->forks);
 }
 
 int	main(int ac, char **av)
@@ -85,7 +86,7 @@ int	main(int ac, char **av)
 	if (!ft_check_arg(av))
 		return (0);
 	table = ft_fill_table(av, ac);
-	table->start_time = get_current_time();
+	table->start_time = get_current_time() + (table->nb_philo / 2);
 	ft_open_thread(table);
 	if (table->nb_philo > 1)
 		ft_start(table);
