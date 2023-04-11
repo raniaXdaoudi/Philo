@@ -6,7 +6,7 @@
 /*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/21 14:15:24 by rania             #+#    #+#             */
-/*   Updated: 2023/04/03 16:52:55 by radaoudi         ###   ########.fr       */
+/*   Updated: 2023/04/11 11:25:31 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,18 +82,18 @@ void	*routine_death(void *data)
 static void	death_part_get(t_stack *table, int i)
 {
 
-	ft_putnbr(get_current_time() - table->start_time);
-	write(1, " ", 1);
-	ft_putnbr(table->philo[i]->id + 1);
-	write(1, " ", 1);
-	write(1, "died.\n", ft_strlen("died.\n"));
-	table->died = 1;
-	pthread_mutex_unlock(&table->print);
+	// ft_putnbr(get_current_time() - table->start_time);
+	// write(1, " ", 1);
+	// ft_putnbr(table->philo[i]->id + 1);
+	// write(1, " ", 1);
+	// write(1, "died.\n", ft_strlen("died.\n"));
+	// table->died = 1;
+	// pthread_mutex_unlock(&table->print);
 	// ft_print(table->philo[i], "died.\n");
 	// pthread_mutex_lock(&table->mutex);
-	// table->died = 1;
+	table->died = 1;
 	// pthread_mutex_unlock(&table->mutex);
-	// printf("%lu %i died.\n", get_current_time() - table->philo[i]->table->start_time, table->philo[i]->id + 1);
+	printf("%lu %i died.\n", get_current_time() - table->philo[i]->table->start_time, table->philo[i]->id + 1);
 	pthread_mutex_unlock(&table->philo[i]->mutex);
 }
 
