@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: rania <rania@student.42.fr>                +#+  +:+       +#+         #
+#    By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/09 17:34:49 by rania             #+#    #+#              #
-#    Updated: 2023/02/21 14:19:41 by rania            ###   ########.fr        #
+#    Updated: 2023/04/17 15:47:27 by radaoudi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,7 +28,7 @@ NAME	= philo
 
 CC		= gcc
 RM		= rm -f
-CFLAGS	= $(INC) -Wall -Wextra -Werror
+CFLAGS	= $(INC) -pthread -Wall -Wextra -Werror
 
 # -fsanitize=address -g3
 all:		$(NAME)

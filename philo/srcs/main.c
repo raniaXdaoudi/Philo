@@ -6,11 +6,23 @@
 /*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:43:31 by rania             #+#    #+#             */
-/*   Updated: 2023/04/11 15:46:50 by radaoudi         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:05:55 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+int	get_death(t_stack *table)
+{
+	pthread_mutex_lock(&table->print);
+	if (table->died == 1)
+	{
+		pthread_mutex_unlock(&table->print);
+		return (0);
+	}
+	pthread_mutex_unlock(&table->print);
+	return (1);
+}
 
 void	ft_free_philo(t_stack *table)
 {
@@ -68,6 +80,7 @@ static void	ft_start(t_stack *table)
 	while (i < table->nb_philo)
 	{
 		pthread_join(table->philo[i]->thread, NULL);
+		pthread_mutex_destroy(&table->philo[i]->mutex_philo);
 		i++;
 	}
 	pthread_mutex_destroy(&table->print);

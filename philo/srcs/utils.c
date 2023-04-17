@@ -6,7 +6,7 @@
 /*   By: radaoudi <radaoudi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/09 17:43:37 by rania             #+#    #+#             */
-/*   Updated: 2023/04/03 14:43:26 by radaoudi         ###   ########.fr       */
+/*   Updated: 2023/04/17 16:06:22 by radaoudi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,9 +69,6 @@ void	ft_putnbr(long long int nbr)
 
 void	ft_print(t_philo *philo, char *str)
 {
-	if (is_finish(philo->table))
-		return ;
-	pthread_mutex_lock(&philo->mutex);
 	pthread_mutex_lock(&philo->table->print);
 	ft_putnbr(get_current_time() - philo->table->start_time);
 	write(1, " ", 1);
@@ -79,5 +76,4 @@ void	ft_print(t_philo *philo, char *str)
 	write(1, " ", 1);
 	write(1, str, ft_strlen(str));
 	pthread_mutex_unlock(&philo->table->print);
-	pthread_mutex_unlock(&philo->mutex);
 }
